@@ -1,3 +1,4 @@
+const { StatusCodes } = require('http-status-codes');
 const {FlightService} = require('../services/index');
 const { SuccessCodes } = require('../utils/error-code');
 
@@ -23,7 +24,7 @@ const create = async (req, res) => {
         })
     } catch (error) {
         console.log(error);
-        return res.status(500).json({
+        return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
             data: {},
             success: false,
             message: 'Not able to create a flight',
@@ -43,7 +44,7 @@ const getAll = async (req, res) => {
         });
     } catch (error) {
         console.log(error);
-        return res.status(500).json({
+        return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
             data: {},
             success: false,
             message: 'Not able to fetch the flights',
@@ -63,7 +64,7 @@ const get = async (req, res) => {
         });
     } catch (error) {
         console.log(error);
-        return res.status(500).json({
+        return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
             data: {},
             success: false,
             message: 'Not able to fetch the flight',
@@ -83,7 +84,7 @@ const update = async (req, res) => {
         });
     } catch (error) {
         console.log(error);
-        return res.status(500).json({
+        return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
             data: {},
             success: false,
             message: 'Not able to update the flight',
