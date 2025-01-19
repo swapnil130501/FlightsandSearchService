@@ -36,6 +36,7 @@ const create = async (req, res) => {
 const getAll = async (req, res) => {
     try {
         const response = await flightService.getAllFlightData(req.query);
+        console.log(response)
         return res.status(SuccessCodes.OK).json({
             data: response,
             success: true,
